@@ -411,10 +411,10 @@ text = "sorry"
 flat = true
 
 [node name="for2" type="Button" parent="ScatteredText"]
-margin_left = 509.909
-margin_top = 72.1162
-margin_right = 548.909
-margin_bottom = 119.116
+margin_left = 476.747
+margin_top = 54.0281
+margin_right = 515.747
+margin_bottom = 101.028
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.439216, 0.439216, 0.439216, 1 )
 custom_colors/font_color_hover = Color( 0.227451, 0.223529, 0.223529, 1 )
