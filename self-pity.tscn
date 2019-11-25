@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://self-pity.gd" type="Script" id=1]
 [ext_resource path="res://bird_sheet-08.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://fonts/goudyEB50.tres" type="DynamicFont" id=4]
 [ext_resource path="res://fonts/calistaMT33.tres" type="DynamicFont" id=5]
 [ext_resource path="res://ScatteredText.gd" type="Script" id=6]
+[ext_resource path="res://button.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "bird"
@@ -24,11 +25,10 @@ tracks/0/keys = {
 }
 
 [node name="self-pity" type="Node2D"]
-position = Vector2( 606.127, 360.4 )
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 630.0 ],
-"_edit_vertical_guides_": [ 140.0 ]
+"_edit_horizontal_guides_": [ 150.0 ],
+"_edit_vertical_guides_": [  ]
 }
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -42,20 +42,15 @@ hframes = 3
 anims/bird = SubResource( 1 )
 
 [node name="background" type="TextureRect" parent="."]
-margin_left = -606.0
-margin_top = -360.0
-margin_right = 760.0
-margin_bottom = 411.0
+margin_right = 1366.0
+margin_bottom = 771.0
 texture = ExtResource( 3 )
 expand = true
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="FinishedText" type="Node2D" parent="."]
 editor/display_folded = true
 visible = false
-position = Vector2( -466.127, 29.6 )
+position = Vector2( 142, 425 )
 
 [node name="Title" type="RichTextLabel" parent="FinishedText"]
 margin_left = -0.355164
@@ -119,22 +114,14 @@ text = "     - D.H. Lawrence"
 override_selected_font_color = true
 
 [node name="ScatteredText" type="Node2D" parent="."]
-position = Vector2( -466.127, -360 )
 script = ExtResource( 6 )
 
-[node name="I" type="Button" parent="ScatteredText"]
-margin_left = 604.882
-margin_top = 238.318
-margin_right = 638.882
-margin_bottom = 285.318
-custom_fonts/font = ExtResource( 5 )
-custom_colors/font_color = Color( 0.439216, 0.439216, 0.439216, 1 )
-custom_colors/font_color_hover = Color( 0.227451, 0.223529, 0.223529, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "I"
-flat = true
+[node name="backup" type="Node2D" parent="."]
+visible = false
 
-[node name="never" type="Button" parent="ScatteredText"]
+[node name="I" parent="backup" instance=ExtResource( 7 )]
+
+[node name="never" type="Button" parent="backup"]
 margin_left = 907.683
 margin_top = 121.146
 margin_right = 974.683
@@ -146,7 +133,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "never"
 flat = true
 
-[node name="saw" type="Button" parent="ScatteredText"]
+[node name="saw" type="Button" parent="backup"]
 margin_left = 866.057
 margin_top = 221.051
 margin_right = 915.057
@@ -158,7 +145,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "saw"
 flat = true
 
-[node name="a" type="Button" parent="ScatteredText"]
+[node name="a" type="Button" parent="backup"]
 margin_left = 717.122
 margin_top = 311.706
 margin_right = 751.122
@@ -170,7 +157,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "a"
 flat = true
 
-[node name="wild" type="Button" parent="ScatteredText"]
+[node name="wild" type="Button" parent="backup"]
 margin_left = 816.243
 margin_top = 316.951
 margin_right = 869.243
@@ -182,7 +169,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "wild"
 flat = true
 
-[node name="thing" type="Button" parent="ScatteredText"]
+[node name="thing" type="Button" parent="backup"]
 margin_left = 963.188
 margin_top = 203.783
 margin_right = 1025.19
@@ -194,7 +181,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "thing"
 flat = true
 
-[node name="sorry" type="Button" parent="ScatteredText"]
+[node name="sorry" type="Button" parent="backup"]
 margin_left = 512.068
 margin_top = 529.712
 margin_right = 573.068
@@ -206,7 +193,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "sorry"
 flat = true
 
-[node name="for" type="Button" parent="ScatteredText"]
+[node name="for" type="Button" parent="backup"]
 margin_left = 266.002
 margin_top = 346.242
 margin_right = 305.002
@@ -218,7 +205,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "for"
 flat = true
 
-[node name="itself" type="Button" parent="ScatteredText"]
+[node name="itself" type="Button" parent="backup"]
 margin_left = 343.707
 margin_top = 443.373
 margin_right = 407.707
@@ -230,7 +217,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "itself."
 flat = true
 
-[node name="A" type="Button" parent="ScatteredText"]
+[node name="A" type="Button" parent="backup"]
 margin_left = 507.751
 margin_top = 419.63
 margin_right = 541.751
@@ -242,7 +229,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "A"
 flat = true
 
-[node name="small" type="Button" parent="ScatteredText"]
+[node name="small" type="Button" parent="backup"]
 margin_left = 145.128
 margin_top = 441.215
 margin_right = 208.128
@@ -254,7 +241,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "small"
 flat = true
 
-[node name="bird" type="Button" parent="ScatteredText"]
+[node name="bird" type="Button" parent="backup"]
 margin_left = 108.434
 margin_top = 195.149
 margin_right = 158.434
@@ -266,7 +253,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "bird"
 flat = true
 
-[node name="will" type="Button" parent="ScatteredText"]
+[node name="will" type="Button" parent="backup"]
 margin_left = 596.248
 margin_top = 367.827
 margin_right = 643.248
@@ -278,7 +265,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "will"
 flat = true
 
-[node name="drop" type="Button" parent="ScatteredText"]
+[node name="drop" type="Button" parent="backup"]
 margin_left = 740.866
 margin_top = 177.881
 margin_right = 796.866
@@ -290,7 +277,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "drop"
 flat = true
 
-[node name="frozen" type="Button" parent="ScatteredText"]
+[node name="frozen" type="Button" parent="backup"]
 margin_left = 294.062
 margin_top = 210.258
 margin_right = 368.062
@@ -302,7 +289,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "frozen"
 flat = true
 
-[node name="dead" type="Button" parent="ScatteredText"]
+[node name="dead" type="Button" parent="backup"]
 margin_left = 479.691
 margin_top = 210.258
 margin_right = 537.691
@@ -314,7 +301,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "dead"
 flat = true
 
-[node name="from" type="Button" parent="ScatteredText"]
+[node name="from" type="Button" parent="backup"]
 margin_left = 704.172
 margin_top = 242.635
 margin_right = 762.172
@@ -326,7 +313,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "from"
 flat = true
 
-[node name="a2" type="Button" parent="ScatteredText"]
+[node name="a2" type="Button" parent="backup"]
 margin_left = 326.439
 margin_top = 50.5315
 margin_right = 360.439
@@ -338,7 +325,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "a"
 flat = true
 
-[node name="bough" type="Button" parent="ScatteredText"]
+[node name="bough" type="Button" parent="backup"]
 margin_left = 572.505
 margin_top = 134.712
 margin_right = 645.505
@@ -350,7 +337,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "bough"
 flat = true
 
-[node name="without" type="Button" parent="ScatteredText"]
+[node name="without" type="Button" parent="backup"]
 margin_left = 414.937
 margin_top = 339.767
 margin_right = 501.937
@@ -362,7 +349,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "without"
 flat = true
 
-[node name="ever" type="Button" parent="ScatteredText"]
+[node name="ever" type="Button" parent="backup"]
 margin_left = 734.39
 margin_top = 93.701
 margin_right = 788.39
@@ -374,7 +361,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "ever"
 flat = true
 
-[node name="having" type="Button" parent="ScatteredText"]
+[node name="having" type="Button" parent="backup"]
 margin_left = 183.98
 margin_top = 275.012
 margin_right = 261.98
@@ -386,7 +373,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "having"
 flat = true
 
-[node name="felt" type="Button" parent="ScatteredText"]
+[node name="felt" type="Button" parent="backup"]
 margin_left = 447.314
 margin_top = 255.586
 margin_right = 490.314
@@ -398,7 +385,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "felt"
 flat = true
 
-[node name="sorry2" type="Button" parent="ScatteredText"]
+[node name="sorry2" type="Button" parent="backup"]
 margin_left = 408.461
 margin_top = 139.029
 margin_right = 469.461
@@ -410,7 +397,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "sorry"
 flat = true
 
-[node name="for2" type="Button" parent="ScatteredText"]
+[node name="for2" type="Button" parent="backup"]
 margin_left = 476.747
 margin_top = 54.0281
 margin_right = 515.747
@@ -422,7 +409,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "for"
 flat = true
 
-[node name="itself2" type="Button" parent="ScatteredText"]
+[node name="itself2" type="Button" parent="backup"]
 margin_left = 196.931
 margin_top = 117.444
 margin_right = 260.931
@@ -433,4 +420,3 @@ custom_colors/font_color_hover = Color( 0.227451, 0.223529, 0.223529, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "itself"
 flat = true
-[connection signal="gui_input" from="ScatteredText/I" to="." method="_on_I_gui_input"]
