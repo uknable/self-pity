@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://self-pity.gd" type="Script" id=1]
 [ext_resource path="res://bird_sheet-08.png" type="Texture" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://fonts/goudyEB50.tres" type="DynamicFont" id=4]
 [ext_resource path="res://fonts/calistaMT33.tres" type="DynamicFont" id=5]
 [ext_resource path="res://ScatteredText.gd" type="Script" id=6]
-[ext_resource path="res://button.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "bird"
@@ -118,8 +117,6 @@ script = ExtResource( 6 )
 
 [node name="backup" type="Node2D" parent="."]
 visible = false
-
-[node name="I" parent="backup" instance=ExtResource( 7 )]
 
 [node name="never" type="Button" parent="backup"]
 margin_left = 907.683
