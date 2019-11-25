@@ -50,7 +50,13 @@ func _on_hello(area):
 	print(ownDictValue, " is saying hello to ", dicValue)
 
 	if (ownDictValue[0] == dicValue[0]):
-		if (ownDictValue[1] - dicValue[1] == 1 && Input.is_action_just_released("left_mouse")):
-			print(ownDictValue[2], " was dropped to the right of ", dicValue[2])
-		if (ownDictValue[1] - dicValue[1] == -1 && Input.is_action_just_released("left_mouse")):
-			print(ownDictValue[2], " was dropped to the left of ", dicValue[2])
+		
+		if (ownDictValue[1] - dicValue[1] == 1):
+			print(ownDictValue[2], " is to the right of ", dicValue[2])
+			if (Input.is_action_just_released("left_mouse")):
+				print(ownDictValue[2], " was dropped to the right of ", dicValue[2])
+
+		if (ownDictValue[1] - dicValue[1] == -1):
+			print(ownDictValue[2], " is to the left of ", dicValue[2])
+			if (Input.is_action_just_released("left_mouse")):
+				print(ownDictValue[2], " was dropped to the left of ", dicValue[2])
