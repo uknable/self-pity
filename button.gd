@@ -5,6 +5,7 @@ signal hello
 var down = false
 var size
 var ownDictValue
+var otherDictValue
 var button_rect
 const SNAP_RADIUS = 10
 
@@ -23,7 +24,8 @@ func _ready():
 func _process(delta):
 	if (down && Input.is_action_pressed("left_mouse")):
 		self.set_position(get_viewport().get_mouse_position())
-
+	
+	
 
 
 func _on_WordButton_button_down():
@@ -42,21 +44,21 @@ func _on_ButtonArea_area_shape_entered(area_id, area, area_shape, self_shape):
 	if (down):
 		emit_signal("hello", area)
 
-	
+
 
 func _on_hello(area):
-	var dicValue = word_manager.wordDict[area.get_parent()]
+	otherDictValue = word_manager.wordDict[area.get_parent()]
 
-	print(ownDictValue, " is saying hello to ", dicValue)
+	print(ownDictValue, " is saying hello to ", otherDictValue)
 
-	if (ownDictValue[0] == dicValue[0]):
-		
-		if (ownDictValue[1] - dicValue[1] == 1):
-			print(ownDictValue[2], " is to the right of ", dicValue[2])
+	if (ownDictValue[0] == otherDictValue[0]):
+
+		if (ownDictValue[1] - otherDictValue[1] == 1):
+			print(ownDictValue[2], " is to the right of ", otherDictValue[2])
 			if (Input.is_action_just_released("left_mouse")):
-				print(ownDictValue[2], " was dropped to the right of ", dicValue[2])
+				print(ownDictValue[2], " was dropped to the right of ", otherDictValue[2])
 
-		if (ownDictValue[1] - dicValue[1] == -1):
-			print(ownDictValue[2], " is to the left of ", dicValue[2])
+		if (ownDictValue[1] - otherDictValue[1] == -1):
+			print(ownDictValue[2], " is to the left of ", otherDictValue[2])
 			if (Input.is_action_just_released("left_mouse")):
-				print(ownDictValue[2], " was dropped to the left of ", dicValue[2])
+				print(ownDictValue[2], " was dropped to the left of ", otherDictValue[2])
