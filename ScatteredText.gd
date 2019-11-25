@@ -62,3 +62,10 @@ func randomPos():
 	var xPos = int(rand_range(margin, get_viewport().size.x/2))
 	var yPos = int(rand_range(margin, get_viewport().size.y - margin))
 	return [xPos, yPos]
+
+func removeButton(button):
+	remove_child(button)
+
+func changeDict(lineNumber):
+	for button in word_manager.wordDict:
+		print(button) #returns the key name i.e button instance "[Button:1301]"
