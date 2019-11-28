@@ -24,7 +24,7 @@ func updateSize():
 	var size = self.get_size()
 	$ButtonArea.set_position(size/2)
 	$ButtonArea.get_child(0).get_shape().set_extents(size/2)
-	print(self.text, " size is ", size, " and shape extents are ", $ButtonArea.get_child(0).get_shape().get_extents())
+	# print(self.text, " size is ", size, " and shape extents are ", $ButtonArea.get_child(0).get_shape().get_extents())
 
 
 func _on_WordButton_button_down():
@@ -61,24 +61,21 @@ func _on_ButtonArea_area_entered(area):
 		otherLineNum = otherButton.ownLineNum
 		otherWordNum = otherButton.ownWordNum
 		otherText = otherButton.text
-	
-		print(self.text, ":", ownLineNum, ":", ownWordNum, " is saying hello to ", otherText, ":", otherLineNum, ":", otherWordNum)
 
+		print(self.text, ":", ownLineNum, ":", ownWordNum, ":", self, " is saying hello to ", otherText, ":", otherLineNum, ":", otherWordNum, ":", self)
+		
 	
 		if (ownLineNum == otherLineNum && abs(ownWordNum - otherWordNum) == 1): # animation
-			print(self.text, ": ", ownWordNum, " is next to ", otherText, ": ", otherWordNum) 
-			# WIP
-	
+			print(self.text, ": ", ownWordNum, " is next to ", otherText, ": ", otherWordNum)
+			otherButton.set_pressed(true) 
+			print(otherButton.is_pressed())
+			
 
 
 func _on_ButtonArea_area_exited(area):
 	hoveringOver = false
 
 func _on_dict_change(deadLineNum, line):
-	
-	var prevWordNum = ownWordNum
 
 	if (ownLineNum == deadLineNum):
 		ownWordNum = line.find(self)
-		print(self.text, " has changed from", prevWordNum, " to", ownWordNum)
-	

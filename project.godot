@@ -19,10 +19,6 @@ config/name="self-pity"
 run/main_scene="res://self-pity.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-word_manager="*res://word_manager.gd"
-
 [display]
 
 window/size/width=1366

@@ -42,9 +42,6 @@ func _ready():
 		
 		wordDict[SELF_PITY.find(line)] = buttonArray
 
-	wordDict[1][1] = ["hello"]
-	print(wordDict)
-
 func randomPos():
 	var xPos = int(rand_range(margin, get_viewport().size.x/2))
 	var yPos = int(rand_range(margin, get_viewport().size.y - margin))
