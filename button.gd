@@ -2,6 +2,7 @@ extends Button
 
 var down = false
 var hoveringOver = false
+var adjacent = false
 
 var ownLineNum
 var ownWordNum
@@ -11,8 +12,16 @@ var otherLineNum
 var otherWordNum
 var otherText
 
+const NORMAL_COLOR = Color( 1, 0, 1, 1 )
+const HOVER_COLOR = Color( 0.94, 0.97, 1, 1 )
+
+var normal_style = load("res://normal.tres") as StyleBoxFlat
+var adjacent_style = load("res://highlight_adjacent.tres") as StyleBoxFlat
+
+
 func _ready():
 	updateSize()
+
 
 func _process(delta):
 	if (down && Input.is_action_pressed("left_mouse")):
@@ -67,13 +76,15 @@ func _on_ButtonArea_area_entered(area):
 	
 		if (ownLineNum == otherLineNum && abs(ownWordNum - otherWordNum) == 1): # animation
 			print(self.text, ": ", ownWordNum, " is next to ", otherText, ": ", otherWordNum)
-			otherButton.set_pressed(true) 
-			print(otherButton.is_pressed())
-			
+			area.get_parent().add_stylebox_override("normal", adjacent_style)
+
 
 
 func _on_ButtonArea_area_exited(area):
+	area.get_parent().add_stylebox_override("normal", normal_style)
 	hoveringOver = false
+	
+
 
 func _on_dict_change(deadLineNum, line):
 
