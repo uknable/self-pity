@@ -2,7 +2,6 @@ extends Button
 
 var down = false
 var hoveringOver = false
-var adjacent = false
 
 var ownLineNum
 var ownWordNum
@@ -12,10 +11,7 @@ var otherLineNum
 var otherWordNum
 var otherText
 
-const NORMAL_COLOR = Color( 1, 0, 1, 1 )
-const HOVER_COLOR = Color( 0.94, 0.97, 1, 1 )
-
-var normal_style = load("res://normal.tres") as StyleBoxFlat
+var normal_style = load("res://normal.tres") as StyleBoxEmpty
 var adjacent_style = load("res://highlight_adjacent.tres") as StyleBoxFlat
 
 
@@ -26,7 +22,7 @@ func _ready():
 func _process(delta):
 	if (down && Input.is_action_pressed("left_mouse")):
 		var mousePos = get_viewport().get_mouse_position()
-		self.set_position(Vector2(mousePos.x - 20, mousePos.y - 10))
+		self.set_position(mousePos - self.get_size()/2)
 
 
 func updateSize():
@@ -46,12 +42,12 @@ func _on_WordButton_button_up():
 		var side = ownWordNum - otherWordNum
 
 		if (side == -1):
-			print(self.text, " was dropped to the left of ", otherText)
+			# print(self.text, " was dropped to the left of ", otherText)
 			otherButton.text = self.text + " " + otherButton.text
 
 
 		if (side == 1):
-			print(self.text, " was dropped to the right of ", otherText)
+			# print(self.text, " was dropped to the right of ", otherText)
 			otherButton.text = otherButton.text + " " + self.text
 
 		otherButton.updateSize()
@@ -71,11 +67,11 @@ func _on_ButtonArea_area_entered(area):
 		otherWordNum = otherButton.ownWordNum
 		otherText = otherButton.text
 
-		print(self.text, ":", ownLineNum, ":", ownWordNum, ":", self, " is saying hello to ", otherText, ":", otherLineNum, ":", otherWordNum, ":", self)
+		# print(self.text, ":", ownLineNum, ":", ownWordNum, ":", self, " is saying hello to ", otherText, ":", otherLineNum, ":", otherWordNum, ":", self)
 		
 	
 		if (ownLineNum == otherLineNum && abs(ownWordNum - otherWordNum) == 1): # animation
-			print(self.text, ": ", ownWordNum, " is next to ", otherText, ": ", otherWordNum)
+			# print(self.text, ": ", ownWordNum, " is next to ", otherText, ": ", otherWordNum)
 			area.get_parent().add_stylebox_override("normal", adjacent_style)
 
 
