@@ -44,6 +44,9 @@ margin_right = 1366.0
 margin_bottom = 771.0
 texture = ExtResource( 2 )
 expand = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="FinishedText" type="Node2D" parent="."]
 position = Vector2( 142, 425 )
@@ -73,13 +76,13 @@ text = "I never saw a wild thing"
 
 [node name="Line2" type="RichTextLabel" parent="FinishedText"]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 177.213
-margin_right = 590.0
-margin_bottom = 227.213
+margin_top = 97.2131
+margin_right = 410.0
+margin_bottom = 147.213
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
-bbcode_text = "[color=#707070]without ever having felt sorry for itself[/color]"
-text = "without ever having felt sorry for itself"
+bbcode_text = "[color=#707070]sorry for itself.[/color]"
+text = "sorry for itself."
 override_selected_font_color = true
 
 [node name="Line3" type="RichTextLabel" parent="FinishedText"]
@@ -96,13 +99,13 @@ override_selected_font_color = true
 
 [node name="Line4" type="RichTextLabel" parent="FinishedText"]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 97.2131
-margin_right = 410.0
-margin_bottom = 147.213
+margin_top = 177.213
+margin_right = 590.0
+margin_bottom = 227.213
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
-bbcode_text = "[color=#707070]sorry for itself.[/color]"
-text = "sorry for itself."
+bbcode_text = "[color=#707070]without ever having felt sorry for itself[/color]"
+text = "without ever having felt sorry for itself"
 override_selected_font_color = true
 
 [node name="Author" type="RichTextLabel" parent="FinishedText"]

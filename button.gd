@@ -1,7 +1,10 @@
 extends Button
 
+const FADE_IN = 0.7
+
 var down = false
 var hoveringOver = false
+var fading = false
 
 var ownLineNum
 var ownWordNum
@@ -19,11 +22,18 @@ func _ready():
 	updateSize()
 
 
+
+
 func _process(delta):
 	if (down && Input.is_action_pressed("left_mouse")):
 		var mousePos = get_viewport().get_mouse_position()
 		self.set_position(mousePos - self.get_size()/2)
 
+	if (fading):
+		self.modulate.a -= delta * FADE_IN
+
+		if (self.modulate.a <= 0):
+			fading = false
 
 func updateSize():
 	var size = self.get_size()

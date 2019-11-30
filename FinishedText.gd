@@ -1,26 +1,57 @@
 extends Node2D
 
+const FADE_IN = 0.7
+
 var line1 = false
 var line2 = false
 var line3 = false
 var line4 = false
 
+
 func _process(delta):
     if (line1):
-        $Line1.add
+        $Line1.modulate.a += delta * FADE_IN
+
+        if ($Line1.modulate.a > 1):
+            $Line1.modulate.a = 1
+            line1 = false
+
+    if (line2):
+        $Line2.modulate.a += delta * FADE_IN
+
+        if ($Line2.modulate.a > 1):
+            $Line2.modulate.a = 1
+            line2 = false
+
+    if (line3):
+        $Line3.modulate.a += delta * FADE_IN
+
+        if ($Line3.modulate.a > 1):
+            $Line3.modulate.a = 1
+            line3 = false
+    
+    if (line4):
+        $Line4.modulate.a += delta * FADE_IN
+
+        if ($Line4.modulate.a > 1):
+            $Line4.modulate.a = 1
+            line4 = false
+
+    if ($Line1.modulate.a >= 1 && $Line2.modulate.a >= 1 && $Line3.modulate.a >= 1 && $Line4.modulate.a >= 1):
+        $Title.modulate.a += delta * FADE_IN
+        $Title.modulate.a = clamp($Title.modulate.a, 0, 1)
+
+        $Author.modulate.a += delta * FADE_IN
+        $Author.modulate.a = clamp($Author.modulate.a, 0, 1)
 
 func RevealLine(lineNum):
     match lineNum:
         0:
-            $Line1.add_color_override("font_color", Color(1, 0, 0, 0))
-            print("Line 1 is finished!")
+            line1 = true
         1:
-            $Line1.add_color_override("font_color", Color(1, 0, 0, 0))
-            print("Line 2 is finished!")
+            line2 = true
         2:
-            $Line1.add_color_override("font_color", Color(1, 0, 0, 0))
-            print("Line 3 is finished!")
+            line3 = true
         3:
-            $Line1.add_color_override("font_color", Color(1, 0, 0, 0))
-            print("Line 4 is finished!")
+            line4 = true    
 

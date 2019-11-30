@@ -58,3 +58,4 @@ func CheckLines():
 	for line in wordDict:
 		if (wordDict[line].size() == 1):
 			get_parent().get_node("FinishedText").RevealLine(line)
+			wordDict.get(line)[0].fading = true
