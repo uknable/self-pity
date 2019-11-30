@@ -50,7 +50,7 @@ position = Vector2( 142, 425 )
 script = ExtResource( 3 )
 
 [node name="Title" type="RichTextLabel" parent="FinishedText"]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 margin_left = -0.355164
 margin_top = 0.400024
 margin_right = 319.645
@@ -61,7 +61,7 @@ bbcode_text = "[color=#707070]Self-Pity[/color]"
 text = "Self-Pity"
 
 [node name="Line1" type="RichTextLabel" parent="FinishedText"]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 margin_left = -0.355164
 margin_top = 57.2131
 margin_right = 409.645
@@ -72,7 +72,7 @@ bbcode_text = "[color=#707070]I never saw a wild thing[/color]"
 text = "I never saw a wild thing"
 
 [node name="Line2" type="RichTextLabel" parent="FinishedText"]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 177.213
 margin_right = 590.0
 margin_bottom = 227.213
@@ -83,7 +83,7 @@ text = "without ever having felt sorry for itself"
 override_selected_font_color = true
 
 [node name="Line3" type="RichTextLabel" parent="FinishedText"]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 margin_left = -0.355164
 margin_top = 137.213
 margin_right = 729.645
@@ -95,7 +95,7 @@ text = "A small bird will drop frozen dead from a bough"
 override_selected_font_color = true
 
 [node name="Line4" type="RichTextLabel" parent="FinishedText"]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 97.2131
 margin_right = 410.0
 margin_bottom = 147.213
@@ -106,7 +106,7 @@ text = "sorry for itself."
 override_selected_font_color = true
 
 [node name="Author" type="RichTextLabel" parent="FinishedText"]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 217.213
 margin_right = 410.0
 margin_bottom = 267.213
