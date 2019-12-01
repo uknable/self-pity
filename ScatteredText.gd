@@ -48,10 +48,12 @@ func randomPos():
 	var yPos = int(rand_range(margin, get_viewport().size.y - margin))
 	return [xPos, yPos]
 
+	
 func updateDict(lineNum, wordNum):
 	wordDict.get(lineNum).remove(wordNum)
 	emit_signal("dict_changed", lineNum, wordDict.get(lineNum))
 	CheckLines()
+
 
 func CheckLines():
 	print("checking lines")

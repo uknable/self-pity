@@ -25,21 +25,28 @@ func _ready():
 
 
 func _process(delta):
-	if (down && Input.is_action_pressed("left_mouse")):
-		var mousePos = get_viewport().get_mouse_position()
-		self.set_position(mousePos - self.get_size()/2)
-
 	if (fading):
 		self.modulate.a -= delta * FADE_IN
 
 		if (self.modulate.a <= 0):
 			fading = false
+			queue_free()
+
+
+
+func _physics_process(delta):
+	if (down && Input.is_action_pressed("left_mouse")):
+		var mousePos = get_viewport().get_mouse_position()
+		self.set_position(mousePos - self.get_size()/2)
+
+
 
 func updateSize():
 	var size = self.get_size()
+	print(self.text, " size: ", size)
 	$ButtonArea.set_position(size/2)
 	$ButtonArea.get_child(0).get_shape().set_extents(size/2)
-	# print(self.text, " size is ", size, " and shape extents are ", $ButtonArea.get_child(0).get_shape().get_extents())
+	print("Text: " , self.text, ". Size: ", size, ". Shape extents: ", $ButtonArea.get_child(0).get_shape().get_extents(), ". Position: ", $ButtonArea.get_position())
 
 
 func _on_WordButton_button_down():
@@ -62,6 +69,7 @@ func _on_WordButton_button_up():
 
 		otherButton.updateSize()
 		self.get_parent().updateDict(ownLineNum, ownWordNum)
+	
 		queue_free()
 
 	down = false
@@ -77,8 +85,7 @@ func _on_ButtonArea_area_entered(area):
 		otherWordNum = otherButton.ownWordNum
 		otherText = otherButton.text
 
-		# print(self.text, ":", ownLineNum, ":", ownWordNum, ":", self, " is saying hello to ", otherText, ":", otherLineNum, ":", otherWordNum, ":", self)
-		
+		print(self.text, " Size: ", self.get_size(), " is saying hello to ", otherButton.text, " Size: ", otherButton.get_size())
 	
 		if (ownLineNum == otherLineNum && abs(ownWordNum - otherWordNum) == 1): # animation
 			# print(self.text, ": ", ownWordNum, " is next to ", otherText, ": ", otherWordNum)
@@ -93,6 +100,7 @@ func _on_ButtonArea_area_exited(area):
 
 
 func _on_dict_change(deadLineNum, line):
-
+	
+	
 	if (ownLineNum == deadLineNum):
 		ownWordNum = line.find(self)
