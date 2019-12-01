@@ -3,7 +3,6 @@ extends Button
 const FADE_IN = 0.7
 
 var down = false
-var hoveringOver = false
 var fading = false
 
 var ownLineNum
@@ -23,30 +22,26 @@ func _ready():
 
 
 
-
-func _process(delta):
+func _physics_process(delta):
 	if (fading):
 		self.modulate.a -= delta * FADE_IN
 
 		if (self.modulate.a <= 0):
 			fading = false
-			queue_free()
 
-
-
-func _physics_process(delta):
 	if (down && Input.is_action_pressed("left_mouse")):
 		var mousePos = get_viewport().get_mouse_position()
 		self.set_position(mousePos - self.get_size()/2)
 
 
 
-func updateSize():
-	var size = self.get_size()
+func updateSize(sizeAdd = Vector2(0, 0)):
+	var size = Vector2(self.get_size().x + sizeAdd.x, self.get_size().y)
 	print(self.text, " size: ", size)
 	$ButtonArea.set_position(size/2)
 	$ButtonArea.get_child(0).get_shape().set_extents(size/2)
 	print("Text: " , self.text, ". Size: ", size, ". Shape extents: ", $ButtonArea.get_child(0).get_shape().get_extents(), ". Position: ", $ButtonArea.get_position())
+
 
 
 func _on_WordButton_button_down():
@@ -55,7 +50,7 @@ func _on_WordButton_button_down():
 
 
 func _on_WordButton_button_up():
-	if (hoveringOver && ownLineNum == otherLineNum && abs(ownWordNum - otherWordNum) == 1): # merge
+	if (ownLineNum == otherLineNum && abs(ownWordNum - otherWordNum) == 1): # merge
 		var side = ownWordNum - otherWordNum
 
 		if (side == -1):
@@ -67,7 +62,7 @@ func _on_WordButton_button_up():
 			# print(self.text, " was dropped to the right of ", otherText)
 			otherButton.text = otherButton.text + " " + self.text
 
-		otherButton.updateSize()
+		otherButton.updateSize(self.get_size())
 		self.get_parent().updateDict(ownLineNum, ownWordNum)
 	
 		queue_free()
@@ -78,8 +73,7 @@ func _on_WordButton_button_up():
 
 func _on_ButtonArea_area_entered(area):
 	if (down):
-		hoveringOver = true
-
+		
 		otherButton = area.get_parent()
 		otherLineNum = otherButton.ownLineNum
 		otherWordNum = otherButton.ownWordNum
@@ -95,7 +89,6 @@ func _on_ButtonArea_area_entered(area):
 
 func _on_ButtonArea_area_exited(area):
 	area.get_parent().add_stylebox_override("normal", normal_style)
-	hoveringOver = false
 	
 
 

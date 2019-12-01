@@ -56,7 +56,6 @@ func updateDict(lineNum, wordNum):
 
 
 func CheckLines():
-	print("checking lines")
 	for line in wordDict:
 		if (wordDict[line].size() == 1):
 			get_parent().get_node("FinishedText").RevealLine(line)

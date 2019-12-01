@@ -8,7 +8,7 @@ var line3 = false
 var line4 = false
 
 
-func _process(delta):
+func _physics_process(delta):
     if (line1):
         $Line1.modulate.a += delta * FADE_IN
 
