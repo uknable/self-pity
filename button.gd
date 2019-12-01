@@ -1,6 +1,6 @@
 extends Button
 
-const FADE_IN = 0.7
+const FADE = 0.7
 
 var down = false
 var fading = false
@@ -24,7 +24,7 @@ func _ready():
 
 func _physics_process(delta):
 	if (fading):
-		self.modulate.a -= delta * FADE_IN
+		self.modulate.a -= delta * FADE
 
 		if (self.modulate.a <= 0):
 			fading = false
@@ -37,10 +37,10 @@ func _physics_process(delta):
 
 func updateSize(sizeAdd = Vector2(0, 0)):
 	var size = Vector2(self.get_size().x + sizeAdd.x, self.get_size().y)
-	print(self.text, " size: ", size)
+	# print(self.text, " size: ", size)
 	$ButtonArea.set_position(size/2)
 	$ButtonArea.get_child(0).get_shape().set_extents(size/2)
-	print("Text: " , self.text, ". Size: ", size, ". Shape extents: ", $ButtonArea.get_child(0).get_shape().get_extents(), ". Position: ", $ButtonArea.get_position())
+	# print("Text: " , self.text, ". Size: ", size, ". Shape extents: ", $ButtonArea.get_child(0).get_shape().get_extents(), ". Position: ", $ButtonArea.get_position())
 
 
 
@@ -79,7 +79,7 @@ func _on_ButtonArea_area_entered(area):
 		otherWordNum = otherButton.ownWordNum
 		otherText = otherButton.text
 
-		print(self.text, " Size: ", self.get_size(), " is saying hello to ", otherButton.text, " Size: ", otherButton.get_size())
+		# print(self.text, " Size: ", self.get_size(), " is saying hello to ", otherButton.text, " Size: ", otherButton.get_size())
 	
 		if (ownLineNum == otherLineNum && abs(ownWordNum - otherWordNum) == 1): # animation
 			# print(self.text, ": ", ownWordNum, " is next to ", otherText, ": ", otherWordNum)
