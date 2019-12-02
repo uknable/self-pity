@@ -1,27 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://bird_sheet-08.png" type="Texture" id=1]
-[ext_resource path="res://Canvas – 19.png" type="Texture" id=2]
-[ext_resource path="res://FinishedText.gd" type="Script" id=3]
-[ext_resource path="res://fonts/goudyEB50.tres" type="DynamicFont" id=4]
-[ext_resource path="res://fonts/calistaMT33.tres" type="DynamicFont" id=5]
-[ext_resource path="res://ScatteredText.gd" type="Script" id=6]
-
-[sub_resource type="Animation" id=1]
-resource_name = "bird"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5 ]
-}
+[ext_resource path="res://Canvas – 19.png" type="Texture" id=1]
+[ext_resource path="res://FinishedText.gd" type="Script" id=2]
+[ext_resource path="res://fonts/goudyEB50.tres" type="DynamicFont" id=3]
+[ext_resource path="res://fonts/calistaMT33.tres" type="DynamicFont" id=4]
+[ext_resource path="res://ScatteredText.gd" type="Script" id=5]
+[ext_resource path="res://Animation.tscn" type="PackedScene" id=6]
 
 [node name="self-pity" type="Node2D"]
 __meta__ = {
@@ -29,20 +13,10 @@ __meta__ = {
 "_edit_vertical_guides_": [  ]
 }
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 278.688, -56.0532 )
-scale = Vector2( 0.164062, 0.164062 )
-texture = ExtResource( 1 )
-vframes = 2
-hframes = 3
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/bird = SubResource( 1 )
-
 [node name="background" type="TextureRect" parent="."]
 margin_right = 1366.0
 margin_bottom = 771.0
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 expand = true
 __meta__ = {
 "_edit_lock_": true
@@ -50,7 +24,7 @@ __meta__ = {
 
 [node name="FinishedText" type="Node2D" parent="."]
 position = Vector2( 142, 425 )
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 
 [node name="Title" type="RichTextLabel" parent="FinishedText"]
 modulate = Color( 1, 1, 1, 0 )
@@ -58,7 +32,7 @@ margin_left = -0.355164
 margin_top = 0.400024
 margin_right = 319.645
 margin_bottom = 70.4
-custom_fonts/normal_font = ExtResource( 4 )
+custom_fonts/normal_font = ExtResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[color=#707070]Self-Pity[/color]"
 text = "Self-Pity"
@@ -69,7 +43,7 @@ margin_left = -0.355164
 margin_top = 57.2131
 margin_right = 409.645
 margin_bottom = 107.213
-custom_fonts/normal_font = ExtResource( 5 )
+custom_fonts/normal_font = ExtResource( 4 )
 bbcode_enabled = true
 bbcode_text = "[color=#707070]I never saw a wild thing[/color]"
 text = "I never saw a wild thing"
@@ -79,7 +53,7 @@ modulate = Color( 1, 1, 1, 0 )
 margin_top = 97.2131
 margin_right = 410.0
 margin_bottom = 147.213
-custom_fonts/normal_font = ExtResource( 5 )
+custom_fonts/normal_font = ExtResource( 4 )
 bbcode_enabled = true
 bbcode_text = "[color=#707070]sorry for itself.[/color]"
 text = "sorry for itself."
@@ -91,7 +65,7 @@ margin_left = -0.355164
 margin_top = 137.213
 margin_right = 729.645
 margin_bottom = 187.213
-custom_fonts/normal_font = ExtResource( 5 )
+custom_fonts/normal_font = ExtResource( 4 )
 bbcode_enabled = true
 bbcode_text = "[color=#707070]A small bird will drop frozen dead from a bough[/color]"
 text = "A small bird will drop frozen dead from a bough"
@@ -102,7 +76,7 @@ modulate = Color( 1, 1, 1, 0 )
 margin_top = 177.213
 margin_right = 590.0
 margin_bottom = 227.213
-custom_fonts/normal_font = ExtResource( 5 )
+custom_fonts/normal_font = ExtResource( 4 )
 bbcode_enabled = true
 bbcode_text = "[color=#707070]without ever having felt sorry for itself[/color]"
 text = "without ever having felt sorry for itself"
@@ -113,11 +87,13 @@ modulate = Color( 1, 1, 1, 0 )
 margin_top = 217.213
 margin_right = 410.0
 margin_bottom = 267.213
-custom_fonts/normal_font = ExtResource( 5 )
+custom_fonts/normal_font = ExtResource( 4 )
 bbcode_enabled = true
 bbcode_text = "[color=#707070]     - D.H. Lawrence[/color]"
 text = "     - D.H. Lawrence"
 override_selected_font_color = true
 
 [node name="ScatteredText" type="Node2D" parent="."]
-script = ExtResource( 6 )
+script = ExtResource( 5 )
+
+[node name="Animation" parent="." instance=ExtResource( 6 )]
