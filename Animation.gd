@@ -1,7 +1,7 @@
 extends Node2D
 
-signal sequent
 const INC_RATE = 5
+
 var inc = 0
 
 func _process(delta):
