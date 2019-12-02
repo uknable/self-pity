@@ -1,6 +1,6 @@
 extends Node2D
 
-const INC_RATE = 5
+const INC_RATE = 1
 
 var inc = 0
 

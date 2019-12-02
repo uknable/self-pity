@@ -1,91 +1,97 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Animation.gd" type="Script" id=1]
-[ext_resource path="res://bird_frame.tscn" type="PackedScene" id=2]
-[ext_resource path="res://bird/birds-left.png" type="Texture" id=3]
-[ext_resource path="res://bird/birds-right.png" type="Texture" id=4]
+[ext_resource path="res://bird/birds-left.png" type="Texture" id=2]
 
 [node name="Animation" type="Node2D"]
 position = Vector2( 967.09, 302.741 )
 script = ExtResource( 1 )
 
-[node name="Sprite0" parent="." instance=ExtResource( 2 )]
+[node name="Sprite0" type="Sprite" parent="."]
+visible = false
+position = Vector2( 81.467, -79.692 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+vframes = 2
+hframes = 3
+frame = 3
 
 [node name="Sprite1" type="Sprite" parent="."]
 visible = false
-position = Vector2( 27.2656, -20.4487 )
+position = Vector2( 67.8237, -84.0029 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 vframes = 2
 hframes = 3
 
 [node name="Sprite2" type="Sprite" parent="."]
 visible = false
-position = Vector2( -45.8433, 9.17297 )
+position = Vector2( 52.8335, -83.6497 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 vframes = 2
 hframes = 3
 frame = 1
 
 [node name="Sprite3" type="Sprite" parent="."]
 visible = false
-position = Vector2( -133.448, 17.3662 )
+position = Vector2( 39.2358, -80.0558 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 vframes = 2
 hframes = 3
 frame = 2
 
 [node name="Sprite4" type="Sprite" parent="."]
 visible = false
-position = Vector2( -162.439, -72.1292 )
+position = Vector2( -161.603, 3.13245 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 4 )
+texture = ExtResource( 2 )
 vframes = 2
 hframes = 3
 frame = 3
 
 [node name="Sprite5" type="Sprite" parent="."]
 visible = false
-position = Vector2( -57.8176, -103.011 )
+position = Vector2( -103.066, -106.833 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 4 )
+texture = ExtResource( 2 )
 vframes = 2
 hframes = 3
-frame = 4
+frame = 3
 
 [node name="Sprite6" type="Sprite" parent="."]
 visible = false
-position = Vector2( 31.6777, -51.3308 )
+position = Vector2( -70.4526, -1.4668 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 4 )
+texture = ExtResource( 2 )
 vframes = 2
 hframes = 3
-frame = 5
+frame = 3
 
 [node name="Sprite7" type="Sprite" parent="."]
 visible = false
-position = Vector2( 107.938, 16.7362 )
+position = Vector2( -142.369, -123.976 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 4 )
+texture = ExtResource( 2 )
 vframes = 2
 hframes = 3
+frame = 3
 
 [node name="Sprite8" type="Sprite" parent="."]
 visible = false
-position = Vector2( 172.854, -33.6837 )
+position = Vector2( -143.624, -19.028 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 4 )
+texture = ExtResource( 2 )
 vframes = 2
 hframes = 3
-frame = 1
+frame = 3
 
 [node name="Sprite9" type="Sprite" parent="."]
 visible = false
-position = Vector2( 165.291, -127.591 )
+position = Vector2( 24.4612, -76.7284 )
 scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 vframes = 2
 hframes = 3
-frame = 2
+frame = 3
