@@ -2,6 +2,8 @@ extends Node2D
 
 signal dict_changed
 
+var wordBut = load("res://button.tscn") as PackedScene
+
 var margin
 const SELF_PITY = [
 	"I never saw a wild thing",
@@ -9,8 +11,9 @@ const SELF_PITY = [
 	"A small bird will drop frozen dead from a bough",
 	"without ever having felt sorry for itself"
 ]
-var wordBut = load("res://button.tscn") as PackedScene
 var wordDict = {}
+
+
 
 func _ready():
 
