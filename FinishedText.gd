@@ -60,6 +60,8 @@ func _physics_process(delta):
             $Author.modulate.a = 1
             $Title.modulate.a = 1
             bread = false
+            get_parent().finished = true
+
 
 func RevealLine(lineNum):
     match lineNum:

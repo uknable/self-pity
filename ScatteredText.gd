@@ -16,7 +16,7 @@ var wordDict = {}
 
 
 func _ready():
-
+	
 	margin = get_viewport().size.x/20
 
 	randomize()
