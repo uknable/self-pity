@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://self-pity.gd" type="Script" id=1]
 [ext_resource path="res://Canvas – 19.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://fonts/goudyEB50.tres" type="DynamicFont" id=4]
 [ext_resource path="res://fonts/calistaMT33.tres" type="DynamicFont" id=5]
 [ext_resource path="res://ScatteredText.gd" type="Script" id=6]
+[ext_resource path="res://sounds/bird_sound-001.wav" type="AudioStream" id=7]
 
 [node name="self-pity" type="Node2D"]
 script = ExtResource( 1 )
@@ -96,3 +97,8 @@ override_selected_font_color = true
 
 [node name="ScatteredText" type="Node2D" parent="."]
 script = ExtResource( 6 )
+
+[node name="BirdSounder" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -8.0
+autoplay = true

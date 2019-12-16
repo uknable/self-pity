@@ -1,8 +1,9 @@
 extends Node2D
 
+
+
 const FLY_SPEED = 100
 const FADE_SPEED = 0.1
-# const SCALE_SPEED = 0.1
 
 var yPos
 
