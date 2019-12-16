@@ -101,4 +101,3 @@ script = ExtResource( 6 )
 [node name="BirdSounder" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = -8.0
-autoplay = true
