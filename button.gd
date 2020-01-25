@@ -1,6 +1,7 @@
 extends Button
 
 const FADE = 0.7
+const FADE_OFF = 10.0
 
 var down = false
 var fading = false
@@ -24,7 +25,7 @@ func _ready():
 
 func _physics_process(delta):
 	if (fading):
-		self.modulate.a -= delta * FADE
+		self.modulate.a -= delta * FADE * FADE_OFF
 
 		if (self.modulate.a <= 0):
 			fading = false

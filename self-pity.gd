@@ -19,7 +19,7 @@ func _process(delta):
 		add_bird()
 		if (randi() % 10 <= 1 && !$BirdSounder.playing):
 			$BirdSounder.stream = bird_sounds[randi() % bird_sounds.size()]
-			$BirdSounder.play()
+			# $BirdSounder.play()
 	
 	if (birdCD >= 0):
 		birdCD -= delta
